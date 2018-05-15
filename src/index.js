@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 
 import App from './App';
+import { addExpense } from './actions/expensesActions';
 
 const store = new configureStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -13,9 +13,7 @@ const store = new configureStore(
 const Root = () => {
   return (
     <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
+      <App />
     </Provider>
   );
 };
