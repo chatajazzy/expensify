@@ -18,6 +18,8 @@ export default (state = initialState.expenses, action) => {
           return expense;
         }
       });
+    case appConstants.SET_EXPENSES:
+      return action.expenses;
     default:
       return state;
   }

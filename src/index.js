@@ -4,7 +4,7 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import { addExpense } from './actions/expensesActions';
+import { fetchExpenses } from './actions/expensesActions';
 
 const store = new configureStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -18,4 +18,8 @@ const Root = () => {
   );
 };
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(<p>Loading</p>, document.getElementById('root'));
+
+store.dispatch(fetchExpenses()).then(() => {
+  ReactDOM.render(<Root />, document.getElementById('root'));
+});
