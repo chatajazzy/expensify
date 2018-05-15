@@ -1,5 +1,5 @@
 import appConstants from '../constants/appConstants';
-import initialState from './initialState';
+import { initialState } from './initialState';
 
 export default (state = initialState.expenses, action) => {
   switch (action.type) {

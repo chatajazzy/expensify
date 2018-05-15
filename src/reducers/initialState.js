@@ -1,9 +1,11 @@
-export default {
+import moment from 'moment';
+
+export const initialState = {
   expenses: [],
   filters: {
     text: '',
     sortBy: 'date',
-    startDate: undefined,
-    endDate: undefined
+    startDate: moment().startOf('month'),
+    endDate: moment().endOf('month')
   }
 };
