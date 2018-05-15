@@ -1,4 +1,9 @@
 export default {
   expenses: [],
-  filters: []
+  filters: {
+    text: '',
+    sortBy: 'date',
+    startDate: undefined,
+    endDate: undefined
+  }
 };
