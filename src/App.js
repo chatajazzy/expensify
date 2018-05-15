@@ -6,6 +6,7 @@ import EditExpensePage from './components/EditExpensePage';
 import Header from './components/Header';
 import helpPage from './components/helpPage';
 import notFoundPage from './components/notFoundPage';
+import './firebase';
 
 import './App.scss';
 
