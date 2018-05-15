@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 export default class Header extends Component {
   render() {
     return (
       <header>
-        <h1>Expensify</h1>
+        <h1>
+          <Link to="/">Expensify</Link>
+        </h1>
         <nav>
           <ul>
             <li>
