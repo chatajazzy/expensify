@@ -8,8 +8,10 @@ const config = {
   storageBucket: 'catch-of-the-day-16e3d.appspot.com',
   messagingSenderId: '613658223277'
 };
+
 firebase.initializeApp(config);
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, database as default };
+export { firebase, googleAuthProvider, database as default };

@@ -7,8 +7,8 @@ import Header from './components/Header';
 import helpPage from './components/helpPage';
 import notFoundPage from './components/notFoundPage';
 import './firebase';
-
 import './App.scss';
+import LoginPage from './components/LoginPage';
 
 class App extends Component {
   render() {
@@ -18,7 +18,8 @@ class App extends Component {
           <Header />
           <main className="main">
             <Switch>
-              <Route exact path="/" component={ExpenseDashboardPage} />
+              <Route exact path="/" component={LoginPage} />
+              <Route exact path="/dashboard" component={ExpenseDashboardPage} />
               <Route exact path="/create" component={AddExpensePage} />
               <Route exact path="/edit" component={EditExpensePage} />
               <Route exact path="/edit/:id" component={EditExpensePage} />
