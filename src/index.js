@@ -26,7 +26,6 @@ const Root = () => {
   );
 };
 
-console.log('basename', process.env.PUBLIC_URL);
 let hasRendered = false;
 
 const renderAppOnce = () => {

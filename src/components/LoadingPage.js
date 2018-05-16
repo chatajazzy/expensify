@@ -4,7 +4,7 @@ import loaderGif from '../images/loader.gif';
 const LoadingPage = () => {
   return (
     <div className="loader">
-      <img classname="loader__image" src={loaderGif} alt="page loader" />
+      <img className="loader__image" src={loaderGif} alt="page loader" />
     </div>
   );
 };
