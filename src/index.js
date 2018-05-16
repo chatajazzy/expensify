@@ -8,6 +8,7 @@ import App from './App';
 import { fetchExpenses } from './actions/expensesActions';
 import { firebase } from './firebase';
 import { login, logout } from './actions/authActions';
+import LoadingPage from './components/LoadingPage';
 
 export const history = createHistory();
 
@@ -33,6 +34,8 @@ const renderAppOnce = () => {
     hasRendered = true;
   }
 };
+
+ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
