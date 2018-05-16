@@ -4,7 +4,7 @@ import AddExpensePage from './components/AddExpensePage';
 import ExpenseDashboardPage from './components/ExpenseDashboardPage';
 import EditExpensePage from './components/EditExpensePage';
 import Header from './components/Header';
-import NotFoundPage from './components/NotFoundPage';
+// import NotFoundPage from './components/NotFoundPage';
 import './firebase';
 import './App.scss';
 import LoginPage from './components/LoginPage';
