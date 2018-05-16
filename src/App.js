@@ -4,7 +4,7 @@ import AddExpensePage from './components/AddExpensePage';
 import ExpenseDashboardPage from './components/ExpenseDashboardPage';
 import EditExpensePage from './components/EditExpensePage';
 import Header from './components/Header';
-import notFoundPage from './components/notFoundPage';
+import NotFoundPage from './components/NotFoundPage';
 import './firebase';
 import './App.scss';
 import LoginPage from './components/LoginPage';
@@ -21,7 +21,7 @@ class App extends Component {
             <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
             <PrivateRoute path="/create" component={AddExpensePage} />
             <PrivateRoute path="/edit/:id" component={EditExpensePage} />
-            <Route component={notFoundPage} />
+            <Route component={NotFoundPage} />
           </Switch>
         </main>
       </div>
