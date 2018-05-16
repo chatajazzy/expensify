@@ -15,7 +15,6 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Header />
         <main className="main">
           <Switch>
             <PublicRoute path="/" component={LoginPage} exact={true} />
