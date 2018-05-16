@@ -41,7 +41,6 @@ export default class ExpenseForm extends Component {
   };
   onFormSubmit = e => {
     e.preventDefault();
-    console.log(this);
     if (!this.state.description || !this.state.amount) {
       this.setState({
         error: 'Please provide description and amount'

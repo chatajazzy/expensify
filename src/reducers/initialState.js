@@ -7,5 +7,6 @@ export const initialState = {
     sortBy: 'date',
     startDate: moment().startOf('month'),
     endDate: moment().endOf('month')
-  }
+  },
+  auth: {}
 };

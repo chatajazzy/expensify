@@ -1,34 +1,31 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import AddExpensePage from './components/AddExpensePage';
 import ExpenseDashboardPage from './components/ExpenseDashboardPage';
 import EditExpensePage from './components/EditExpensePage';
 import Header from './components/Header';
-import helpPage from './components/helpPage';
 import notFoundPage from './components/notFoundPage';
 import './firebase';
 import './App.scss';
 import LoginPage from './components/LoginPage';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="container-fluid">
-          <Header />
-          <main className="main">
-            <Switch>
-              <Route exact path="/" component={LoginPage} />
-              <Route exact path="/dashboard" component={ExpenseDashboardPage} />
-              <Route exact path="/create" component={AddExpensePage} />
-              <Route exact path="/edit" component={EditExpensePage} />
-              <Route exact path="/edit/:id" component={EditExpensePage} />
-              <Route exact path="/help" component={helpPage} />
-              <Route component={notFoundPage} />
-            </Switch>
-          </main>
-        </div>
-      </Router>
+      <div className="container-fluid">
+        <Header />
+        <main className="main">
+          <Switch>
+            <PublicRoute path="/" component={LoginPage} exact={true} />
+            <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
+            <PrivateRoute path="/create" component={AddExpensePage} />
+            <PrivateRoute path="/edit/:id" component={EditExpensePage} />
+            <Route component={notFoundPage} />
+          </Switch>
+        </main>
+      </div>
     );
   }
 }

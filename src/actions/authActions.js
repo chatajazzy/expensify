@@ -1,3 +1,4 @@
+import appConstants from '../constants/appConstants';
 import { firebase, googleAuthProvider } from '../firebase';
 
 export const startLogin = () => {
@@ -9,5 +10,18 @@ export const startLogin = () => {
 export const startLogout = () => {
   return () => {
     return firebase.auth().signOut();
+  };
+};
+
+export const login = uid => {
+  return {
+    type: appConstants.LOGIN,
+    uid
+  };
+};
+
+export const logout = () => {
+  return {
+    type: appConstants.LOGOUT
   };
 };

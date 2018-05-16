@@ -12,17 +12,11 @@ const Header = props => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/" exact activeClassName="is-active">
+            <NavLink to="/dashboard" exact activeClassName="is-active">
               Dashboard
             </NavLink>
             <NavLink to="/create" activeClassName="is-active">
               Create Expense
-            </NavLink>
-            <NavLink to="/edit" activeClassName="is-active">
-              Edit Expense
-            </NavLink>
-            <NavLink to="/help" activeClassName="is-active">
-              Help
             </NavLink>
           </li>
         </ul>

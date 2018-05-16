@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
-
+import createHistory from 'history/createBrowserHistory';
 import App from './App';
 import { fetchExpenses } from './actions/expensesActions';
 import { firebase } from './firebase';
+import { login, logout } from './actions/authActions';
+
+export const history = createHistory();
 
 const store = new configureStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -14,21 +18,34 @@ const store = new configureStore(
 const Root = () => {
   return (
     <Provider store={store}>
-      <App />
+      <Router history={history}>
+        <App />
+      </Router>
     </Provider>
   );
 };
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+let hasRendered = false;
 
-// store.dispatch(fetchExpenses()).then(() => {
-//   ReactDOM.render(<Root />, document.getElementById('root'));
-// });
+const renderAppOnce = () => {
+  if (!hasRendered) {
+    ReactDOM.render(<Root />, document.getElementById('root'));
+    hasRendered = true;
+  }
+};
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log('log in');
+    store.dispatch(login(user.uid));
+    store.dispatch(fetchExpenses()).then(() => {
+      renderAppOnce();
+      if (history.location.pathname === '/') {
+        history.push('/dashboard');
+      }
+    });
   } else {
-    console.log('log out');
+    store.dispatch(logout());
+    renderAppOnce();
+    history.push('/');
   }
 });
